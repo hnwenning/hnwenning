@@ -1,0 +1,63 @@
+{
+  "name": "hnwenning-website",
+  "version": "1.0.0",
+  "description": "Wenning Technology - Enterprise Solutions Website",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js --dev",
+    "build": "npm run lint",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint . --ext .js",
+    "serve": "http-server -p 8080 -c-1"
+  },
+  "keywords": [
+    "enterprise",
+    "technology",
+    "software development",
+    "mobile apps",
+    "e-commerce",
+    "wenning"
+  ],
+  "author": "Wenning Technology (Henan) Co., Ltd",
+  "license": "proprietary",
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "compression": "^1.7.4",
+    "helmet": "^7.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "body-parser": "^1.20.2"
+  },
+  "devDependencies": {
+    "eslint": "^8.50.0",
+    "http-server": "^14.1.1",
+    "nodemon": "^3.0.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hnwenning/website.git"
+  },
+  "homepage": "https://hnwenning.com",
+  "bugs": {
+    "url": "https://github.com/hnwenning/website/issues",
+    "email": "support@hnwenning.com"
+  },
+  "maintainers": [
+    {
+      "name": "Wenning Technology Support",
+      "email": "support@hnwenning.com"
+    }
+  ],
+  "company": {
+    "name": "Wenning Technology (Henan) Co., Ltd",
+    "address": "No. 905E, 9th Floor, Building No. 71 Zhengkai Avenue, Hengtong International Plaza, Zhengdong New District, Zhengzhou City, Henan Province, Xinyang, Henan, 464000, China",
+    "website": "https://hnwenning.com",
+    "email": "support@hnwenning.com"
+  }
+}
