@@ -10,8 +10,22 @@
 # ========== GZIP Compression ==========
 <IfModule mod_deflate.c>
     AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json
-    AddOutputFilterByType DEFLATE application/xml application/xml+rss
+    AddOutputFilterByType DEFLATE application/xml application/xml+rss application/xhtml+xml
     AddEncoding gzip svg
+    
+    # Compression level - maximum (9)
+    # Some servers may not support this, but it's worth trying
+    <IfModule mod_filter.c>
+        FilterProvider COMPRESS DEFLATE resp=Content-Type $text/html
+        FilterProvider COMPRESS DEFLATE resp=Content-Type $text/css
+        FilterProvider COMPRESS DEFLATE resp=Content-Type $text/plain
+        FilterProvider COMPRESS DEFLATE resp=Content-Type $text/xml
+        FilterProvider COMPRESS DEFLATE resp=Content-Type $text/x-component
+        FilterProvider COMPRESS DEFLATE resp=Content-Type $application/javascript
+        FilterProvider COMPRESS DEFLATE resp=Content-Type $application/json
+        FilterChain COMPRESS
+        FilterProtocol COMPRESS DEFLATE change=yes;byteranges=no
+    </IfModule>
 </IfModule>
 
 # ========== Browser Caching ==========

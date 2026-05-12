@@ -36,6 +36,10 @@ body {
     color: var(--text-color);
     background-color: #fff;
     letter-spacing: -0.2px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transform: translateZ(0);
+    will-change: scroll-position;
 }
 
 /* ========== Typography ========== */
@@ -127,8 +131,8 @@ a:hover {
 }
 
 .logo-icon {
-    width: 40px;
-    height: 40px;
+    width: 28px;
+    height: 28px;
     transition: transform var(--transition-duration) var(--premium-easing);
 }
 
@@ -220,7 +224,7 @@ a:hover {
 /* ========== Hero Section ========== */
 .hero {
     position: relative;
-    min-height: 100vh;
+    min-height: 85vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -253,43 +257,48 @@ a:hover {
 }
 
 .hero h1 {
-    font-size: 4rem;
+    font-size: 4.5rem;
     font-weight: 300;
     letter-spacing: -1px;
     margin-bottom: 1.5rem;
-    line-height: 1.2;
+    line-height: 1.1;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .hero p {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
     font-weight: 300;
     letter-spacing: 0.5px;
-    margin-bottom: 2rem;
-    opacity: 0.9;
-    line-height: 1.6;
+    margin-bottom: 2.5rem;
+    opacity: 0.95;
+    line-height: 1.7;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
 }
 
 .hero-buttons {
     display: flex;
-    gap: 20px;
+    gap: 30px;
     justify-content: center;
     flex-wrap: wrap;
+    margin-top: 30px;
 }
 
 /* ========== Buttons ========== */
 .btn {
-    padding: 15px 40px;
-    border: 1.5px solid var(--primary-color);
+    padding: 16px 45px;
+    border: 2px solid var(--primary-color);
     background: transparent;
     color: var(--primary-color);
-    font-size: 0.95rem;
-    font-weight: 300;
-    letter-spacing: 0.5px;
+    font-size: 1.05rem;
+    font-weight: 400;
+    letter-spacing: 1px;
     cursor: pointer;
     transition: all var(--transition-duration) var(--premium-easing);
     text-transform: uppercase;
     position: relative;
     overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border-radius: 2px;
 }
 
 .btn::before {
@@ -310,11 +319,14 @@ a:hover {
 
 .btn:hover {
     color: white;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+    transform: translateY(-3px);
 }
 
 .btn-primary {
     border-color: white;
     color: white;
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.25);
 }
 
 .btn-primary::before {
@@ -323,11 +335,15 @@ a:hover {
 
 .btn-primary:hover {
     color: var(--primary-color);
+    box-shadow: 0 12px 32px rgba(255, 255, 255, 0.35);
+    transform: translateY(-3px);
 }
 
 .btn-large {
-    padding: 18px 50px;
-    font-size: 1rem;
+    padding: 20px 55px;
+    font-size: 1.15rem;
+    font-weight: 500;
+    letter-spacing: 1.5px;
 }
 
 /* ========== Sections ========== */
@@ -357,6 +373,23 @@ section h2 {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 
+/* ========== Culture Icons ========== */
+.mvv-icon,
+.culture-icon {
+    width: 56px;
+    height: 56px;
+    max-width: 56px;
+    display: block;
+    margin: 0 auto 16px;
+    flex-shrink: 0;
+}
+
+.culture-icon {
+    width: 48px;
+    height: 48px;
+    max-width: 48px;
+}
+
 /* ========== Service Cards ========== */
 .service-card {
     background: white;
@@ -374,10 +407,10 @@ section h2 {
 }
 
 .service-card svg {
-    width: 80px;
-    height: 80px;
-    margin: 0 auto 25px;
-    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.05));
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 20px;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.05));
     transition: transform var(--transition-duration) var(--premium-easing);
 }
 
@@ -394,6 +427,51 @@ section h2 {
     color: #666;
     font-size: 0.95rem;
     margin-bottom: 20px;
+}
+
+/* ========== Mobile Apps Section ========== */
+.mobile-apps {
+    background: #fff;
+}
+
+.apps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 28px;
+}
+
+.app-card {
+    background: #fff;
+    border: 1px solid var(--border-color);
+    padding: 28px;
+    text-align: center;
+    transition: all var(--transition-duration) var(--premium-easing);
+}
+
+.app-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 24px var(--shadow-color);
+}
+
+.app-icon,
+.app-card svg {
+    width: 44px;
+    height: 44px;
+    max-width: 44px;
+    display: block;
+    margin: 0 auto 14px;
+    flex-shrink: 0;
+}
+
+.app-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+}
+
+.app-card p {
+    color: #666;
+    font-size: 0.92rem;
+    margin-bottom: 0;
 }
 
 /* ========== Service Detail Cards ========== */
@@ -450,8 +528,8 @@ section h2 {
 
 .service-detail-image svg {
     width: 100%;
-    max-width: 400px;
-    filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.1));
+    max-width: 350px;
+    filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.1));
 }
 
 /* ========== Statistics Section ========== */
@@ -506,7 +584,7 @@ section h2 {
     width: 50px;
     height: 50px;
     margin-bottom: 15px;
-    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.05));
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.05));
 }
 
 .info-card h3 {
@@ -606,11 +684,11 @@ section h2 {
 .map-container {
     width: 100%;
     max-width: 100%;
-    height: 500px;
+    height: 420px;
     border: 1px solid var(--border-color);
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 10px 40px var(--shadow-color);
+    box-shadow: 0 5px 20px var(--shadow-color);
     animation: slideInUp 0.8s var(--premium-easing);
 }
 
@@ -851,10 +929,10 @@ section h2 {
 
 @keyframes glow {
     0%, 100% {
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
     }
     50% {
-        box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
     }
 }
 
@@ -999,6 +1077,23 @@ section h2 {
     .grid-2 {
         grid-template-columns: 1fr;
     }
+
+    .apps-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+    }
+
+    .app-card {
+        padding: 20px;
+    }
+
+    .app-icon,
+    .app-card svg {
+        width: 38px;
+        height: 38px;
+        max-width: 38px;
+        margin-bottom: 10px;
+    }
     
     /* Service Detail Cards */
     .service-detail-card {
@@ -1023,16 +1118,24 @@ section h2 {
     
     /* Map */
     .map-container {
-        height: 350px;
+        height: 300px;
     }
     
     /* Buttons */
     .hero-buttons {
         flex-direction: column;
+        gap: 15px;
     }
     
     .btn {
         width: 100%;
+        font-size: 1.05rem;
+        padding: 16px 30px;
+    }
+    
+    .btn-large {
+        font-size: 1.1rem;
+        padding: 18px 30px;
     }
 }
 
@@ -1051,12 +1154,19 @@ section h2 {
         font-size: 1.1rem;
     }
     
+    .hero {
+        min-height: 70vh;
+        padding: 40px 0;
+    }
+    
     .hero h1 {
         font-size: 2rem;
+        margin-bottom: 1rem;
     }
     
     .hero p {
         font-size: 1rem;
+        margin-bottom: 1.5rem;
     }
     
     body {
@@ -1065,11 +1175,12 @@ section h2 {
     
     /* Sections */
     section {
-        padding: 40px 15px;
+        padding: 35px 12px;
     }
     
     section h2 {
-        margin-bottom: 40px;
+        margin-bottom: 30px;
+        font-size: 1.6rem;
     }
     
     /* Navigation */
@@ -1122,12 +1233,37 @@ section h2 {
     
     /* Service Cards */
     .service-card {
-        padding: 25px;
+        padding: 20px;
     }
     
     .service-card svg {
-        width: 60px;
-        height: 60px;
+        width: 50px;
+        height: 50px;
+    }
+
+    .apps-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .app-card {
+        padding: 16px;
+    }
+
+    .app-icon,
+    .app-card svg {
+        width: 32px;
+        height: 32px;
+        max-width: 32px;
+        margin-bottom: 8px;
+    }
+
+    .mvv-icon,
+    .culture-icon {
+        width: 40px;
+        height: 40px;
+        max-width: 40px;
+        margin-bottom: 12px;
     }
     
     /* Stats */
@@ -1137,7 +1273,12 @@ section h2 {
     
     /* Map */
     .map-container {
-        height: 250px;
+        height: 200px;
+    }
+    
+    /* Service Detail Images */
+    .service-detail-image svg {
+        max-width: 100%;
     }
     
     /* Grid layouts */
@@ -1194,5 +1335,119 @@ section h2 {
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
+    }
+}
+
+ . b t n - s e c o n d a r y   { 
+         b a c k g r o u n d :   w h i t e ; 
+         c o l o r :   v a r ( - - p r i m a r y - c o l o r ) ; 
+         b o r d e r - c o l o r :   w h i t e ; 
+         f o n t - w e i g h t :   6 0 0 ; 
+         b o x - s h a d o w :   0   8 p x   2 0 p x   r g b a ( 2 5 5 ,   2 5 5 ,   2 5 5 ,   0 . 4 ) ; 
+ } 
+ 
+ . b t n - s e c o n d a r y : : b e f o r e   { 
+         b a c k g r o u n d :   v a r ( - - p r i m a r y - c o l o r ) ; 
+ } 
+ 
+ . b t n - s e c o n d a r y : h o v e r   { 
+         c o l o r :   w h i t e ; 
+         b o x - s h a d o w :   0   1 2 p x   4 0 p x   r g b a ( 2 5 5 ,   2 5 5 ,   2 5 5 ,   0 . 5 ) ; 
+         t r a n s f o r m :   t r a n s l a t e Y ( - 4 p x ) ; 
+ } 
+ 
+ 
+/* Extra Small Devices (<380px) */
+@media (max-width: 380px) {
+    /* Hero Optimization */
+    .hero {
+        min-height: 60vh;
+        padding: 20px 0;
+    }
+    
+    .hero h1 {
+        font-size: 1.5rem;
+        line-height: 1.3;
+        margin-bottom: 0.75rem;
+    }
+    
+    .hero p {
+        font-size: 0.9rem;
+        margin-bottom: 1.2rem;
+    }
+    
+    /* Reduce padding throughout */
+    section {
+        padding: 30px 10px;
+    }
+    
+    section h2 {
+        font-size: 1.3rem;
+        margin-bottom: 25px;
+    }
+    
+    /* Buttons */
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.8rem;
+        letter-spacing: 0.5px;
+    }
+    
+    .btn-large {
+        padding: 12px 25px;
+        font-size: 0.85rem;
+    }
+    
+    /* Cards */
+    .service-card {
+        padding: 15px;
+        margin-bottom: 15px;
+    }
+    
+    .service-card svg {
+        width: 45px;
+        height: 45px;
+        margin-bottom: 12px;
+    }
+    
+    /* Map */
+    .map-container {
+        height: 180px;
+    }
+    
+    /* Contact Form */
+    .form-group {
+        margin-bottom: 15px;
+    }
+    
+    /* Typography */
+    h1 {
+        font-size: 1.5rem;
+    }
+    
+    h2 {
+        font-size: 1.2rem;
+    }
+    
+    h3 {
+        font-size: 1rem;
+    }
+    
+    /* Stats */
+    .stat-number {
+        font-size: 2rem;
+    }
+    
+    .stat-card {
+        padding: 20px;
+    }
+    
+    /* Navigation */
+    .nav-container {
+        height: 55px;
+    }
+    
+    .nav-logo {
+        font-size: 1rem;
     }
 }

@@ -65,7 +65,8 @@ app.use(compression({
         }
         return compression.filter(req, res);
     },
-    level: 6
+    level: 9,
+    threshold: 1024
 }));
 
 // ========== Body Parser ==========
@@ -81,12 +82,18 @@ app.use(express.static(path.join(__dirname, 'public'), {
 
 // Set cache headers for static files
 app.use((req, res, next) => {
-    if (req.url.match(/\.(jpg|jpeg|png|gif|ico|css|js|svg|woff|woff2|ttf|otf)$/)) {
+    if (req.url.match(/\.(jpg|jpeg|png|gif|ico|svg|woff|woff2|ttf|otf)$/)) {
         res.set('Cache-Control', 'public, max-age=31536000, immutable');
+        res.set('Expires', new Date(Date.now() + 31536000000).toUTCString());
+    } else if (req.url.match(/\.(css|js)$/)) {
+        res.set('Cache-Control', 'public, max-age=31536000, immutable');
+        res.set('X-Content-Type-Options', 'nosniff');
     } else if (req.url.match(/\.html$/)) {
         res.set('Cache-Control', 'public, max-age=0, must-revalidate');
+    } else {
+        res.set('Cache-Control', 'public, max-age=3600');
     }
-    next();
+    next();  
 });
 
 // ========== Request Logging ==========
