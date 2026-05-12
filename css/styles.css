@@ -734,7 +734,7 @@ section h2 {
 .footer {
     background: var(--primary-color);
     color: white;
-    padding: 60px 20px 30px;
+    padding: 52px 20px 24px;
     margin-top: 0;
 }
 
@@ -743,8 +743,8 @@ section h2 {
     margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 40px;
-    margin-bottom: 40px;
+    gap: 36px;
+    margin-bottom: 28px;
 }
 
 .footer-section h4 {
@@ -783,7 +783,7 @@ section h2 {
 
 .footer-bottom {
     border-top: 1px solid rgba(255, 255, 255, 0.2);
-    padding-top: 30px;
+    padding-top: 20px;
     text-align: center;
     font-size: 0.9rem;
     font-weight: 300;
